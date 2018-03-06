@@ -1,0 +1,50 @@
+mystox:
+  mongodb:
+#      main:
+##        uri: mongodb://192.168.0.221:27017/monitor_loadtest
+#        uri: mongodb://localhost:27018/datasource2
+    primary:
+#        uri: mongodb://mystox:123456@localhost:27017/datasource2
+#        uri: mongodb://192.168.0.174:27117/redPreference_test
+#        uri: mongodb://192.168.0.221:27017/shard_test180102
+#        uri: mongodb://fastech:fastech!QAZ@188.102.2.149:27017,188.102.16.115:27017,188.102.16.117:27017/monitor_test0824
+      uri: mongodb://192.168.0.176:27117,192.168.0.174:27117,192.168.0.173:27117/irectoryperdb
+    secondary:
+#        uri: mongodb://localhost:27018/datasource1
+#        uri: mongodb://192.168.0.176:27117,192.168.0.174:27117/monitor_test1012
+      uri: mongodb://192.168.0.221:27017,192.168.0.222:27017,192.168.0.223:27017/shard_test18025
+#        uri: mongodb://mystox:123456@localhost:27017/datasource1
+    tertiary:
+      #uri: mongodb://mystox:123456@localhost:27017/datasource1
+      uri: mongodb://192.168.0.221:27017,192.168.0.222:27017,192.168.0.223:27017,192.168.0.245:27017,192.168.0.246:27017,192.168.0.247:27017/shard_test180126
+#        uri: mongodb://localhost:27117/monitor_test0831
+#        uri: mongodb://mystox:123456@localhost:27017/datasource2
+
+#      uri: mongodb://192.168.0.221:27117,192.168.0.222:27117/memory_test #副本集配置方法
+
+#      uri: mongodb://mystox:123456@localhost:27017/authtest #单例配置+user:pwd
+    readPreference:
+      uri: mongodb://192.168.0.176:27117,192.168.0.174:27117,192.168.0.173:27117/shard_test180102
+  log: 1
+server:
+  port: 8081
+logging:
+  level:
+    com.fastech.db.mongodb: debug
+spring:
+  cloud:
+    stream:
+      binders:
+        brokers: 192.168.0.126:9092
+        zk-nodes: 192.168.0.126:2182
+        minPartitionCount: 1
+        autoCreateTopics: true
+        autoAddPartitions: false
+#spring.cloud.stream.bindings.<channelName>.binder=<binderName>
+#spring.cloud.stream.binders.<binderName>.type=kafka
+#spring.cloud.stream.binders.<binderName>.environment.spring.cloud.stream.kafka.binder.brokers=10.79.96.52:9092
+#spring.cloud.stream.binders.<binderName>.environment.spring.cloud.stream.kafka.binder.zk-nodes=10.79.96.52:2182
+
+
+
+
