@@ -30,7 +30,8 @@ server:
   port: 8081
 logging:
   level:
-    com.fastech.db.mongodb: debug
+    com.fastech.db.mongodb: INFO
+    tech.mystox.kafka: INFO
 spring:
   cloud:
     stream:
@@ -40,6 +41,11 @@ spring:
         minPartitionCount: 1
         autoCreateTopics: true
         autoAddPartitions: false
+      bindings:
+        input:
+          destination: springcloud-topic-01
+
+
 #spring.cloud.stream.bindings.<channelName>.binder=<binderName>
 #spring.cloud.stream.binders.<binderName>.type=kafka
 #spring.cloud.stream.binders.<binderName>.environment.spring.cloud.stream.kafka.binder.brokers=10.79.96.52:9092
