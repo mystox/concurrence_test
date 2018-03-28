@@ -8,20 +8,20 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by mystoxlol on 2018/2/28, 15:27.
+ * Created by mystoxlol on 2018/3/19, 11:06.
  * company: fastech
+ * description:
  * update record:
  */
 @Component
-@PropertySource(value = "classpath:logconfig.properties")//配置文件路径
+@PropertySource(value = "logconfig2.yml")//配置文件路径
 @Configuration
-//@Profile(value = "logconfig")
-public class ServiceDemo implements CommandLineRunner
+public class ConfigDemo implements CommandLineRunner
 {
-    @Value("${com.mystox.name}")
+    @Value("${com.mystox.name2}")
     private String name;
 
-    @Value("${mystox.log}")
+    @Value("${mystox.log2}")
     private String log;
 
     private Logger logger = Logger.getLogger(this.getClass());
@@ -29,8 +29,8 @@ public class ServiceDemo implements CommandLineRunner
     @Override
     public void run(String... args) throws Exception
     {
-        logger.info("server start test...---------------------------" + name);
-        logger.info("mystox.log=" + log);
+        logger.info("config demo server start test...---------------------------" + name);
+        logger.info("config demo mystox.log=" + log);
 
     }
 }

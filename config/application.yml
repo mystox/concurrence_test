@@ -25,7 +25,7 @@ mystox:
 #      uri: mongodb://mystox:123456@localhost:27017/authtest #单例配置+user:pwd
     readPreference:
       uri: mongodb://192.168.0.176:27117,192.168.0.174:27117,192.168.0.173:27117/shard_test180102
-  log: 1
+  log: 2
 server:
   port: 8081
 logging:
@@ -44,12 +44,10 @@ spring:
       bindings:
         input:
           destination: springcloud-topic-01
-  config:
-    name: ./config
-    location: file:./config/
-#com:
-#  mystox:
-#    name: mystox
+
+com:
+  mystox:
+    name: mystox_config
 
 #spring.cloud.stream.bindings.<channelName>.binder=<binderName>
 #spring.cloud.stream.binders.<binderName>.type=kafka
