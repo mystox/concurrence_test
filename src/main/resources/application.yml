@@ -13,7 +13,7 @@ mystox:
 #        uri: mongodb://localhost:27018/datasource1
 #        uri: mongodb://192.168.0.176:27117,192.168.0.174:27117/monitor_test1012
       uri: mongodb://192.168.0.221:27017,192.168.0.222:27017,192.168.0.223:27017/shard_test18025
-#        uri: mongodb://mystox:123456@localhost:27017/datasource1
+#        uri            : mongodb://mystox:123456@localhost:27017/datasource1
     tertiary:
       #uri: mongodb://mystox:123456@localhost:27017/datasource1
       uri: mongodb://192.168.0.221:27017,192.168.0.222:27017,192.168.0.223:27017,192.168.0.245:27017,192.168.0.246:27017,192.168.0.247:27017/shard_test180126
@@ -27,7 +27,9 @@ mystox:
       uri: mongodb://192.168.0.176:27117,192.168.0.174:27117,192.168.0.173:27117/shard_test180102
   log: 1
 server:
-  port: 8081
+  port: 8082
+  session:
+    timeout: 60
 logging:
   level:
     com.fastech.db.mongodb: INFO
@@ -45,8 +47,20 @@ spring:
         input:
           destination: springcloud-topic-01
   config:
-    name: ./config
-    location: file:./config/
+    name: inside-config
+    location: classpath:/,classpath:/config/,file:./,file:./config/
+  session:
+    store-type: redis
+
+  redis:
+    host: 192.168.50.77
+    port: 6379
+    database: 2
+  mvc:
+    favicon:
+      enabled: true
+
+
 #com:
 #  mystox:
 #    name: mystox

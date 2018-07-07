@@ -1,5 +1,6 @@
 package com.fastech.db.mongodb;
 
+import com.fastech.db.mongodb.config.configuration.InsideConfig;
 import com.fastech.db.mongodb.entity.*;
 import com.fastech.db.mongodb.repository.primary.*;
 import com.fastech.db.mongodb.repository.redPreference.ReadPreferenceRepository;
@@ -15,12 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -111,8 +112,8 @@ public class ConcurrenceTestApplicationTests
 				.withMatcher("NENAME", ExampleMatcher.GenericPropertyMatchers.exact()) //姓名采用“开始匹配”的方式查询
 				.withIgnorePaths("id");  //忽略属性：是否关注。因为是基本类型，需要忽略掉
 		Example<Student> example = Example.of(matcherObject, matcher);
-		Student student = studentRepository.findOne(7l);
-		System.out.println(student);
+//		Student student = studentRepository.fin
+//		System.out.println(student);
 		Boolean result = studentRepository.exists(example);
 		System.out.println(result);
 		List<Student> results = studentRepository.findAll(example);
@@ -155,7 +156,7 @@ public class ConcurrenceTestApplicationTests
 			final int b = i;
 			Runnable runnable = () ->
 			{
-				TestCol testCol1 = readPreferenceRepository.findById((long) 10l);
+				Optional<TestCol> testCol1 = readPreferenceRepository.findById((long) 10l);
 				System.out.println(testCol1.toString());
 			};
 			runnable.run();
@@ -192,7 +193,7 @@ public class ConcurrenceTestApplicationTests
 		{
 			keys.put(key, 1);
 		}
-		BasicQuery basicQuery = new BasicQuery(bdb);
+//		BasicQuery basicQuery = new BasicQuery(bdb);
 
 		BasicDBObject query = new BasicDBObject();
 
@@ -324,6 +325,17 @@ public class ConcurrenceTestApplicationTests
 			System.out.println(firstRepositoryTemplate.findByNename(neName));
 		}
 	}
+
+	@Autowired
+	InsideConfig insideConfig;
+
+
+	@Test
+	public void testConfig()
+	{
+		insideConfig.test();
+	}
+
 
 
 

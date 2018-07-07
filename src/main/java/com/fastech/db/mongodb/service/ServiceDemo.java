@@ -3,19 +3,16 @@ package com.fastech.db.mongodb.service;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by mystoxlol on 2018/2/28, 15:27.
  * company: fastech
  * update record:
  */
-@Component
-@PropertySource(value = "classpath:logconfig.properties")//配置文件路径
-@Configuration
-//@Profile(value = "logconfig")
+//@Component
+////@PropertySource(value = "file:./config/logconfig.properties")//配置文件路径
+//@Configuration
+
 public class ServiceDemo implements CommandLineRunner
 {
     @Value("${com.mystox.name}")

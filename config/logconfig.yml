@@ -1,5 +1,5 @@
 com:
   mystox:
-    name: mystoxlol
+    name: mystoxlol(outside)
 mystox:
-  log: mystoxlog
+  log: mystoxlog(outside)

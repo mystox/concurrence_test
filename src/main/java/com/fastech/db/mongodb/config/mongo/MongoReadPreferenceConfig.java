@@ -1,6 +1,5 @@
 package com.fastech.db.mongodb.config.mongo;
 
-import com.mongodb.Bytes;
 import com.mongodb.MongoClientOptions;
 import com.mongodb.MongoClientURI;
 import com.mongodb.ReadPreference;
@@ -32,10 +31,11 @@ public class MongoReadPreferenceConfig
 //        MongoClientOptions options = builder.build();
 //        MongoClientOptions.Builder connectionOptions;
         SimpleMongoDbFactory simpleMongoDbFactory = new SimpleMongoDbFactory(new MongoClientURI(this.uri, builder));
-        simpleMongoDbFactory.getDb().addOption(Bytes.QUERYOPTION_SLAVEOK);
+//        simpleMongoDbFactory.getDb().addOption(Bytes.QUERYOPTION_SLAVEOK);//只需要副本集查
         MongoTemplate mongoTemplate = new MongoTemplate(simpleMongoDbFactory);
         mongoTemplate.setReadPreference(ReadPreference.secondary());
-        mongoTemplate.getDb().addOption(Bytes.QUERYOPTION_SLAVEOK);
+//        mongoTemplate.getDb().addOption(Bytes.QUERYOPTION_SLAVEOK);
+
 
         return mongoTemplate;
     }

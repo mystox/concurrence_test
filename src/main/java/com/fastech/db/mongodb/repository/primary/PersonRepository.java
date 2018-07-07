@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by mystoxlol on 2017/3/22 0022, 11:12.
@@ -37,7 +38,7 @@ public interface PersonRepository extends MongoRepository<Person, String>
 //    Person findByCreate_date(BasicDBObject timeStamp);
 
 
-    Person findById(String id);
+    Optional<Person> findById(String id);
 
 
 

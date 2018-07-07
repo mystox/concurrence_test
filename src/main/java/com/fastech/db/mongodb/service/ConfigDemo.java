@@ -3,9 +3,6 @@ package com.fastech.db.mongodb.service;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by mystoxlol on 2018/3/19, 11:06.
@@ -13,15 +10,15 @@ import org.springframework.stereotype.Component;
  * description:
  * update record:
  */
-@Component
-@PropertySource(value = "logconfig2.yml")//配置文件路径
-@Configuration
+//@Component
+//@PropertySource(value = "logconfig.yml")//配置文件路径
+//@Configuration
 public class ConfigDemo implements CommandLineRunner
 {
-    @Value("${com.mystox.name2}")
+    @Value("${com.mystox.name}")
     private String name;
 
-    @Value("${mystox.log2}")
+    @Value("${mystox.log}")
     private String log;
 
     private Logger logger = Logger.getLogger(this.getClass());

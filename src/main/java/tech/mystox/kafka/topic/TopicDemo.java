@@ -1,6 +1,8 @@
 package tech.mystox.kafka.topic;
 
-import kafka.admin.AdminClient;
+//import kafka.admin.AdminClient;
+
+import org.apache.kafka.clients.admin.AdminClient;
 
 import java.util.Properties;
 

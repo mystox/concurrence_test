@@ -54,7 +54,7 @@ public class MemoryRepositoryTemplate
         String s = "";
         Map<String, Object> map = new HashMap<String, Object>();
 
-        DBCollection collection = redPreferenceMongoTemplate.getCollection("person");
+        DBCollection collection = (DBCollection) redPreferenceMongoTemplate.getCollection("person");
         BasicDBObject jsonSql = new BasicDBObject();
         jsonSql.put("name", "name1");
         DBCursor dbCursor = collection.find(jsonSql);

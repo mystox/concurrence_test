@@ -47,7 +47,7 @@ spring:
 
 com:
   mystox:
-    name: mystox_config
+    name: mystox_config(outside)
 
 #spring.cloud.stream.bindings.<channelName>.binder=<binderName>
 #spring.cloud.stream.binders.<binderName>.type=kafka

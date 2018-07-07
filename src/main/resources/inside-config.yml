@@ -1,0 +1,3 @@
+mystox:
+  config:
+    name: inside-name(classpath)
